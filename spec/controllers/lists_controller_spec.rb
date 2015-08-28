@@ -69,11 +69,11 @@ RSpec.describe ListsController, type: :controller do
     end
   end
 
-  # describe "PUT #archive" do
-  #   before { put :archive, :id => list.id }
+  describe "PUT #archive" do
+    before { put :archive, :id => list.id }
 
-  #   it { expect(assigns(:list).status).to eq('archived') }
-  #   it { expect(response).to redirect_to(lists_path) }
-  # end
+    it { expect(assigns(:list).status).to eq('archived') }
+    it { expect(response).to redirect_to(lists_path) }
+  end
 
 end

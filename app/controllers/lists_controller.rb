@@ -34,7 +34,8 @@ class ListsController < ApplicationController
   end
 
   def archive
-
+    @list.archived!
+    redirect_to lists_path, flash: { success: "List was successfully deleted" }
   end
 
   private
