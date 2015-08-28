@@ -11,7 +11,7 @@ RSpec.describe ListsController, type: :controller do
   end
 
   describe "GET #show" do
-    before { get :show, :id => list.id }
+    before { get :show, id: list.id }
 
     it { is_expected.to render_template(:show) }
     it { expect(assigns(:list)).to eq(list) }
@@ -25,7 +25,7 @@ RSpec.describe ListsController, type: :controller do
   end
 
   describe "POST #create" do
-    before { post :create, :list => params }
+    before { post :create, list: params }
 
     context "with valid params" do
       let(:params) { attributes_for(:list) }
@@ -44,14 +44,14 @@ RSpec.describe ListsController, type: :controller do
   end
 
   describe "GET #edit" do
-    before { get :edit, :id => list.id }
+    before { get :edit, id: list.id }
 
     it { is_expected.to render_template(:edit) }
     it { expect(assigns(:list)).to eq(list) }
   end
 
   describe "PATCH #update" do
-    before { patch :update, :id => list.id, :list => params }
+    before { patch :update, id: list.id, list: params }
 
     context "with valid params" do
       let(:params) { { title: "Title updated" } }
@@ -70,7 +70,7 @@ RSpec.describe ListsController, type: :controller do
   end
 
   describe "PUT #archive" do
-    before { put :archive, :id => list.id }
+    before { put :archive, id: list.id }
 
     it { expect(assigns(:list).status).to eq('archived') }
     it { expect(response).to redirect_to(lists_path) }
